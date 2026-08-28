@@ -12,19 +12,28 @@
 </head>
 
 <body>
-    <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
             <%- include("../partials/header-adm") -%>
 
     <div class="container body-content">
         <h2>Novo cliente</h2>
 
+        <% if (typeof erros !== "undefined" && erros.length > 0) { %>
+    <div class="alert alert-danger">
+        <ul>
+            <% erros.forEach(erro => { %>
+                <li><%= erro.msg %></li>
+            <% }) %>
+        </ul>
+    </div>
+<% } %>
+ 
         <form action="" method="post">
 
               <%- include("../partials/form-cliente") -%>
         </form>
 
         <div>
-            <a class="btn btn-primary btn-lg" href="/adm/adm-cliente" role="button">voltar</a>
+            <a class="btn btn-primary btn-lg" href="/adm/adm-cliente-novo" role="button">voltar</a>
 
         </div>
 
